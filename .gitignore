@@ -16,13 +16,8 @@ ENV/
 env.bak/
 venv.bak/
 
-# If you're using PostgreSQL
+# PostgreSQL specific
 *.pgdata
-
-# If you're using MySQL
-*.myd
-*.myi
-*.frm
 
 # Ignore the staticfiles directory created by Django when using the collectstatic command
 /staticfiles/
@@ -34,9 +29,6 @@ venv.bak/
 
 # PyCharm specific
 .idea/
-
-# VS Code specific
-.vscode/
 
 # Python
 *.py[cod]
