@@ -1,0 +1,28 @@
+<!-- templates/todo_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/todo.js' %}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Todo List</h2>
+        <ul id="todo-list">
+            {% for task in tasks %}
+            <li class="task-item" data-task-id="{{ task.id }}">
+                <span class="task-number">{{ forloop.counter }}</span>.
+                <span class="task-name">{{ task.name }}</span>
+                <span class="task-time">{{ task.time_estimate }} min</span>
+                <button class="start-timer-btn">Start Timer</button>
+                <button class="mark-complete-btn">Mark as Complete</button>
+            </li>
+            {% endfor %}
+        </ul>
+        <button id="add-task-btn" class="btn btn-secondary">Add Task</button>
+    </div>
+</body>
+</html>
