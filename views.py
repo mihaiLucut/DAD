@@ -1,7 +1,11 @@
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
+from django.views.generic import ListView
 from django.views.generic.edit import FormView
 from django.contrib.auth.models import User
 from .forms import SignUpForm
+from .models import Task
+
 
 class SignUpView(FormView):
     template_name = 'signup.html'
@@ -15,6 +19,7 @@ class SignUpView(FormView):
         )
         return super().form_valid(form)
 
+
 class UserLoginView(LoginView):
     template_name = 'login.html'
     redirect_authenticated_user = True
@@ -22,14 +27,11 @@ class UserLoginView(LoginView):
 
     def get_success_url(self):
         return self.success_url or self.get_redirect_url()
-		
+
+
 class UserLogoutView(LogoutView):
     next_page = reverse_lazy('login')
-	
 
-# views.py
-from django.views.generic import ListView
-from .models import Task
 
 class TodoListView(ListView):
     model = Task
