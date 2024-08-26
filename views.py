@@ -14,3 +14,14 @@ class SignUpView(FormView):
             password=form.cleaned_data['password']
         )
         return super().form_valid(form)
+
+class UserLoginView(LoginView):
+    template_name = 'login.html'
+    redirect_authenticated_user = True
+    success_url = reverse_lazy('todo-list')
+
+    def get_success_url(self):
+        return self.success_url or self.get_redirect_url()
+		
+class UserLogoutView(LogoutView):
+    next_page = reverse_lazy('login')

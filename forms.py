@@ -17,10 +17,3 @@ class SignUpForm(forms.ModelForm):
         if password != password_confirmation:
             raise forms.ValidationError("Passwords do not match.")
 
-class UserLoginView(LoginView):
-    template_name = 'login.html'
-    redirect_authenticated_user = True
-    success_url = reverse_lazy('todo-list')
-
-    def get_success_url(self):
-        return self.success_url or self.get_redirect_url()
