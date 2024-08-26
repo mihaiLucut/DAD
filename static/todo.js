@@ -2,6 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     const completeButtons = document.querySelectorAll('.mark-complete-btn');
+    const timerButtons = document.querySelectorAll('.start-timer-btn');
+
     completeButtons.forEach(button => {
         button.addEventListener('click', function () {
             this.parentElement.style.textDecoration = 'line-through';
@@ -14,4 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
             audio.play();
         });
     });
-});
+
+    timerButtons.forEach(button => {
+        button.addEventListener
