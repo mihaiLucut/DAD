@@ -25,3 +25,13 @@ class UserLoginView(LoginView):
 		
 class UserLogoutView(LogoutView):
     next_page = reverse_lazy('login')
+	
+
+# views.py
+from django.views.generic import ListView
+from .models import Task
+
+class TodoListView(ListView):
+    model = Task
+    template_name = 'todo_list.html'
+    context_object_name = 'tasks'
